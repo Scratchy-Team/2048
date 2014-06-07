@@ -21,7 +21,6 @@
 * Create HighScore;
 */
 
-
 window.onload = function () {
     var endGame = false;
     var youWin = false;
@@ -32,6 +31,13 @@ window.onload = function () {
     var row, cow;
     var matrix = new Array(Rows);
     var arrayCol, arrayRow;
+
+    var KEY = {
+        UP: 38,
+        DOWN: 40,
+        LEFT: 37,
+        RIGHT: 39
+    };
     for (row = 0; row < Rows; row++) {
         matrix[row] = new Array(Cols);
         for (cow = 0; cow < Cols ; cow++) {
@@ -51,16 +57,16 @@ window.onload = function () {
         document.onkeydown = checkKey;
         function checkKey(e) {
             e = e || window.event;
-            if (e.keyCode === 40) {
+            if (e.keyCode === KEY.DOWN) {
                 direction = "down";
             }
-            if (e.keyCode === 38) {
+            if (e.keyCode === KEY.UP) {
                 direction = "up";
             }
-            if (e.keyCode === 37) {
+            if (e.keyCode === KEY.LEFT) {
                 direction = "left";
             }
-            if (e.keyCode === 39) {
+            if (e.keyCode === KEY.RIGHT) {
                 direction = "right";
             }
         }
