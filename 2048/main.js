@@ -192,9 +192,9 @@ window.onload = function () {
                         width: 100,
                         height: 100,
                         cornerRadius: 5,
-                        fill: '#71B524',
-                        stroke: 'black',
-                        strokeWidth: 1
+                        fill: '#EEE4DA',
+                        stroke: '#BBADA0',
+                        strokeWidth: 5
                     });
                     var text = new Kinetic.Text({
                         x: box.getX(),
