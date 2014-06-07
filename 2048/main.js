@@ -46,8 +46,7 @@ window.onload = function () {
     var direction = "neutral";
 
     gameLoop();
-    CreateRandomNumber();
-    CreateRandomNumber();
+
     draw();
     function gameLoop() {
         window.setTimeout(gameLoop, 60);
@@ -85,7 +84,7 @@ window.onload = function () {
                 }
                 matrix[row] = newArray(arrayCol);
             }
-            CreateRandomNumber();
+
             direction = "neutral";
             draw();
         }
@@ -98,7 +97,7 @@ window.onload = function () {
                 }
                 matrix[row] = newArray(arrayCol).reverse();
             }
-            CreateRandomNumber();
+
             direction = "neutral";
             draw();
         }
@@ -113,7 +112,7 @@ window.onload = function () {
                     matrix[i][col] = newArray(arrayRow)[i];
                 }
             }
-            CreateRandomNumber();
+
             direction = "neutral";
             draw();
         }
@@ -129,7 +128,7 @@ window.onload = function () {
                     matrix[i][col] = temp[i];
                 }
             }
-            CreateRandomNumber();
+
             direction = "neutral";
             draw();
         }
@@ -177,12 +176,20 @@ window.onload = function () {
         }
     }
     function draw() {
+
         var stage = new Kinetic.Stage({
             container: 'container',
             width: 400,
             height: 400
         });
         var layer = new Kinetic.Layer();
+
+        // to be drawn on board
+        var digitPosition = generateRandomPosition();
+
+        // for test purposes
+        console.log(digitPosition[0] + " " + digitPosition[1]);
+
         for (var i = 0; i < Rows; i++) {
             for (var j = 0; j < Cols; j++) {
                 (function () {
@@ -216,15 +223,20 @@ window.onload = function () {
 
         return stage.add(layer);
     }
-    function CreateRandomNumber() {
+    function generateRandomPosition() {
+        var digitPosition = []; // coordinates of new digit
+
         while (true) {
             var currRow = Math.floor((Math.random() * Rows) + 0);
             var currCol = Math.floor((Math.random() * Cols) + 0);
+
             if (matrix[currRow][currCol] === 0) {
-                matrix[currRow][currCol] = 2;
+                digitPosition[0] = currRow;
+                digitPosition[1] = currCol;
                 break;
             }
         }
-        console.log(currRow + " " + currCol);
+
+        return digitPosition;
     }
 }
