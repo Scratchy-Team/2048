@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.30324.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libraries", "libraries", "{3A2C45D8-8E06-4C4D-9946-23448EADC0C3}"
+	ProjectSection(SolutionItems) = preProject
+		kinetic-v5.1.0.js = kinetic-v5.1.0.js
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "html-page", "html-page", "{8C48A809-6DDC-4FB6-B157-02AE511108A9}"
 	ProjectSection(SolutionItems) = preProject
