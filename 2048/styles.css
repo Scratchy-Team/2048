@@ -1,19 +1,27 @@
-﻿body
-{
-   height: auto;
-   background-color: #FAF8EF;
-   color: #776e65;
+﻿body{  
+  background-color: #FAF8EF;
+  color: #776e65;
+  margin-top: 100px;
 }
 
 #wrapper {
-	width: 1024px; 
+	width: 800px; 
 	margin: 0 auto; 
-	border: 1px solid #776e65;
+	border: 3px solid #776e65;
+  border-radius: 5px;
+}
+
+header {
+  margin-left: 10px;
+}
+
+#container {
+  text-align: center;
 }
 
 #instructions {
-    position:relative;
-    margin-top: 500px;
     font-size: 14px;
     font-style: italic;
+    margin-left: 10px;
 }
+
