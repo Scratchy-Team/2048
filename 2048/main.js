@@ -57,31 +57,23 @@ window.onload = function () {
         document.onkeydown = checkKey;
         function checkKey(e) {
             e = e || window.event;
-            if (e.keyCode === KEY.DOWN) {
-                direction = "down";
-            }
-            if (e.keyCode === KEY.UP) {
-                direction = "up";
-            }
-            if (e.keyCode === KEY.LEFT) {
-                direction = "left";
-            }
-            if (e.keyCode === KEY.RIGHT) {
-                direction = "right";
-            }
 
             switch (e.KeyCode) {
                 case KEY.DOWN:
                     moveDown();
+                    direction = "down"; // delete if not needed
                     break;
                 case KEY.UP:
                     moveUp();
+                    direction = "up"; // delete if not needed
                     break;
                 case KEY.LEFT:
                     moveLeft();
+                    direction = "left"; // delete if not needed
                     break;
                 case KEY.RIGHT:
                     moveRight();
+                    direction = "right"; // delete if not needed
                     break;
             }
         }
