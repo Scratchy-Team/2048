@@ -20,7 +20,7 @@
 *TODO 6:
 * Create HighScore;
 */
-
+// nishto
 
 window.onload = function () {
     var endGame = false;
