@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30324.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2048", "2048\2048.csproj", "{E90F15D8-78FE-470A-872B-8266DCD53233}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libraries", "libraries", "{3A2C45D8-8E06-4C4D-9946-23448EADC0C3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "html-page", "html-page", "{8C48A809-6DDC-4FB6-B157-02AE511108A9}"
@@ -20,16 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "styles", "styles", "{E65D90
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E90F15D8-78FE-470A-872B-8266DCD53233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E90F15D8-78FE-470A-872B-8266DCD53233}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E90F15D8-78FE-470A-872B-8266DCD53233}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E90F15D8-78FE-470A-872B-8266DCD53233}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
