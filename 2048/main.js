@@ -192,8 +192,8 @@ window.onload = function () {
                         y: i * 100,
                         width: 100,
                         height: 100,
-                        cornerRadius: 2,
-                        fill: 'yellowgreen',
+                        cornerRadius: 5,
+                        fill: '#71B524',
                         stroke: 'black',
                         strokeWidth: 1
                     });
@@ -202,7 +202,7 @@ window.onload = function () {
                         y: box.getY(),
                         //text: matrix[i][j],
                         text: (matrix[i][j] !== 0) ? (matrix[i][j]) : "",
-                        fontSize: 24,
+                        fontSize: 30,
                         fontFamily: 'Calibri',
                         width: box.getWidth(),
                         padding: 30,
