@@ -21,7 +21,6 @@
 * Create HighScore;
 */
 
-
 window.onload = function () {
     var endGame = false;
     var youWin = false;
