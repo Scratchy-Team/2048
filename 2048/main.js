@@ -69,21 +69,23 @@ window.onload = function () {
             if (e.keyCode === KEY.RIGHT) {
                 direction = "right";
             }
+
+            switch (e.KeyCode) {
+                case KEY.DOWN:
+                    moveDown();
+                    break;
+                case KEY.UP:
+                    moveUp();
+                    break;
+                case KEY.LEFT:
+                    moveLeft();
+                    break;
+                case KEY.RIGHT:
+                    moveRight();
+                    break;
+            }
         }
-        switch (e.KeyCode) {
-            case KEY.DOWN:
-                moveDown();
-                break;
-            case KEY.UP:
-                moveUp();
-                break;
-            case KEY.LEFT:
-                moveLeft();
-                break;
-            case KEY.RIGHT:
-                moveRight();
-                break;
-        }
+
         function moveLeft() {
             for (var row = 0; row < Rows; row++) {
                 arrayCol = new Array(Cols);
