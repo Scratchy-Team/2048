@@ -8,13 +8,13 @@
 *TODO: 3
 * MoveTiles.js to be created. /The moving of the tiles to specific coords according to the buttons pressed/
 *TODO: 4
-* Main.js must include functions the following functions: 
+* Main.js must include functions the following functions:
 * ClearBoard() - clear the board's old results;
 * InitializeBoard(); - initializes the board with the new tile's positions and value inside of them. Includes the following methods:
-*  - CreateTilesAtPosition(); - 
-*  - TilesMultiplicationAtColision()
-*  -  TilesPositionUpdate();
-*  - TilesValueChange();
+* - CreateTilesAtPosition(); -
+* - TilesMultiplicationAtColision()
+* - TilesPositionUpdate();
+* - TilesValueChange();
 *TODO 5;
 * Create Start Game() and GameOver() conditions;
 *TODO 6:
@@ -31,10 +31,9 @@ window.onload = function () {
     var row, cow;
     var matrix = new Array(Rows);
     var arrayCol, arrayRow;
-
     var KEY = {
-        UP: 38,
         DOWN: 40,
+        UP: 38,
         LEFT: 37,
         RIGHT: 39
     };
@@ -45,6 +44,7 @@ window.onload = function () {
         }
     }
     var direction = "neutral";
+
     gameLoop();
     CreateRandomNumber();
     CreateRandomNumber();
@@ -54,11 +54,11 @@ window.onload = function () {
         drawScreen();
     }
     function drawScreen() {
-        document.onkeydown = checkKey;
-        function checkKey(e) {
+        // get user input
+        document.onkeydown = function (e) {
             e = e || window.event;
 
-            switch (e.KeyCode) {
+            switch (e.keyCode) {
                 case KEY.DOWN:
                     moveDown();
                     direction = "down"; // delete if not needed
@@ -77,7 +77,6 @@ window.onload = function () {
                     break;
             }
         }
-
         function moveLeft() {
             for (var row = 0; row < Rows; row++) {
                 arrayCol = new Array(Cols);
@@ -226,5 +225,6 @@ window.onload = function () {
                 break;
             }
         }
+        console.log(currRow + " " + currCol);
     }
 }
