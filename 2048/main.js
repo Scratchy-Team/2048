@@ -38,13 +38,22 @@ window.onload = function () {
         LEFT: 37,
         RIGHT: 39
     };
-    for (row = 0; row < Rows; row++) {
-        matrix[row] = new Array(Cols);
-        for (col = 0; col < Cols ; col++) {
-            matrix[row][col] = 0;
+
+    // initialization logic
+    (function initializeBoard() {
+        for (row = 0; row < Rows; row++) {
+            matrix[row] = new Array(Cols);
+            for (col = 0; col < Cols ; col++) {
+                matrix[row][col] = 0;
+            }
         }
-    }
-    var direction = "neutral";
+
+        var digitPosition = generateRandomPosition();
+        updateBoard(DIGIT_TWO, digitPosition[0], digitPosition[1]);
+    }());
+
+
+    var direction = "neutral";  // delete if not needed
 
     gameLoop();
 
@@ -77,6 +86,7 @@ window.onload = function () {
                     break;
             }
         }
+
         function moveLeft() {
             for (var row = 0; row < Rows; row++) {
                 arrayCol = new Array(Cols);
@@ -86,7 +96,7 @@ window.onload = function () {
                 matrix[row] = newArray(arrayCol);
             }
 
-            direction = "neutral";
+            direction = "neutral"; // delete if not needed
             draw();
         }
 
@@ -99,7 +109,7 @@ window.onload = function () {
                 matrix[row] = newArray(arrayCol).reverse();
             }
 
-            direction = "neutral";
+            direction = "neutral"; // delete if not needed
             draw();
         }
 
@@ -114,7 +124,7 @@ window.onload = function () {
                 }
             }
 
-            direction = "neutral";
+            direction = "neutral"; // delete if not needed
             draw();
         }
 
@@ -130,7 +140,7 @@ window.onload = function () {
                 }
             }
 
-            direction = "neutral";
+            direction = "neutral"; // delete if not needed
             draw();
         }
         function newArray(array) {
@@ -186,7 +196,7 @@ window.onload = function () {
         var layer = new Kinetic.Layer();
 
         var digitPosition = generateRandomPosition();
-        updateBoard(matrix, DIGIT_TWO, digitPosition[0], digitPosition[1]);
+        updateBoard(DIGIT_TWO, digitPosition[0], digitPosition[1]);
 
         // for test purposes
         console.log(digitPosition[0] + " " + digitPosition[1]);
@@ -241,7 +251,7 @@ window.onload = function () {
 
         return digitPosition;
     }
-    function updateBoard(matrix, number, row, col) {
+    function updateBoard(number, row, col) {
         matrix[row][col] = number;
     }
 }
