@@ -70,17 +70,17 @@ window.onload = function () {
                 direction = "right";
             }
         }
-        switch (direction) {
-            case "down":
+        switch (e.KeyCode) {
+            case KEY.DOWN:
                 moveDown();
                 break;
-            case "up":
+            case KEY.UP:
                 moveUp();
                 break;
-            case "left":
+            case KEY.LEFT:
                 moveLeft();
                 break;
-            case "right":
+            case KEY.RIGHT:
                 moveRight();
                 break;
         }
