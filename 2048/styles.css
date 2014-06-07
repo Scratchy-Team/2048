@@ -1,9 +1,14 @@
 ﻿body
 {
-   width: 1024px;
    height: auto;
    background-color: #FAF8EF;
    color: #776e65;
+}
+
+#wrapper {
+	width: 1024px; 
+	margin: 0 auto; 
+	border: 1px solid #776e65;
 }
 
 #instructions {
