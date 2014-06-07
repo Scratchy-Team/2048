@@ -28,9 +28,10 @@ window.onload = function () {
     var Tile = 256;
     var Rows = 4;
     var Cols = 4;
-    var row, cow;
+    var row, col;
     var matrix = new Array(Rows);
     var arrayCol, arrayRow;
+    var DIGIT_TWO = 2;
     var KEY = {
         DOWN: 40,
         UP: 38,
@@ -39,8 +40,8 @@ window.onload = function () {
     };
     for (row = 0; row < Rows; row++) {
         matrix[row] = new Array(Cols);
-        for (cow = 0; cow < Cols ; cow++) {
-            matrix[row][cow] = 0;
+        for (col = 0; col < Cols ; col++) {
+            matrix[row][col] = 0;
         }
     }
     var direction = "neutral";
@@ -184,8 +185,8 @@ window.onload = function () {
         });
         var layer = new Kinetic.Layer();
 
-        // to be drawn on board
         var digitPosition = generateRandomPosition();
+        updateBoard(matrix, DIGIT_TWO, digitPosition[0], digitPosition[1]);
 
         // for test purposes
         console.log(digitPosition[0] + " " + digitPosition[1]);
@@ -206,15 +207,16 @@ window.onload = function () {
                     var text = new Kinetic.Text({
                         x: box.getX(),
                         y: box.getY(),
-                        //text: matrix[i][j],
+                        // text: matrix[i][j],
                         text: (matrix[i][j] !== 0) ? (matrix[i][j]) : "",
-                        fontSize: 30,
+                        fontSize: 40,
                         fontFamily: 'Calibri',
                         width: box.getWidth(),
                         padding: 30,
                         align: 'center',
                         fill: 'white'
                     });
+
                     layer.add(box);
                     layer.add(text);
                 })();
@@ -238,5 +240,8 @@ window.onload = function () {
         }
 
         return digitPosition;
+    }
+    function updateBoard(matrix, number, row, col) {
+        matrix[row][col] = number;
     }
 }
