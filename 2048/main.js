@@ -32,6 +32,7 @@ window.onload = function () {
     var matrix = new Array(Rows);
     var arrayCol, arrayRow;
     var DIGIT_TWO = 2;
+    var TEXT_OFFSET_Y = 30;
     var KEY = {
         DOWN: 40,
         UP: 38,
@@ -216,13 +217,13 @@ window.onload = function () {
                     });
                     var text = new Kinetic.Text({
                         x: box.getX(),
-                        y: box.getY(),
+                        y: box.getY() + TEXT_OFFSET_Y,
                         // text: matrix[i][j],
                         text: (matrix[i][j] !== 0) ? (matrix[i][j]) : "",
                         fontSize: 40,
                         fontFamily: 'Calibri',
                         width: box.getWidth(),
-                        padding: 30,
+                        //padding: 30,
                         align: 'center',
                         fill: 'white'
                     });
