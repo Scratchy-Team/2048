@@ -50,18 +50,18 @@ window.onload = function () {
 
         var digitPosition = generateRandomPosition();
         updateBoard(DIGIT_TWO, digitPosition[0], digitPosition[1]);
-    }());
 
+        draw();
+    }());
 
     var direction = "neutral";  // delete if not needed
 
-    gameLoop();
-
-    draw();
-    function gameLoop() {
+    // main entry point 
+    (function gameLoop() {
         window.setTimeout(gameLoop, 60);
         drawScreen();
-    }
+    }());
+
     function drawScreen() {
         // get user input
         document.onkeydown = function (e) {
@@ -199,7 +199,7 @@ window.onload = function () {
         updateBoard(DIGIT_TWO, digitPosition[0], digitPosition[1]);
 
         // for test purposes
-        console.log(digitPosition[0] + " " + digitPosition[1]);
+        // console.log(digitPosition[0] + " " + digitPosition[1]);
 
         for (var i = 0; i < Rows; i++) {
             for (var j = 0; j < Cols; j++) {
