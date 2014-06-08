@@ -33,7 +33,7 @@ window.onload = function () {
     var arrayCol, arrayRow;
     var DIGIT_TWO = 2;
     var TEXT_OFFSET_Y = 30;
-    var BORDER_WIDTH = 5;
+    var BORDER_OFFSET = 5;
     var KEY = {
         DOWN: 40,
         UP: 38,
@@ -192,16 +192,17 @@ window.onload = function () {
 
         var stage = new Kinetic.Stage({
             container: 'container',
-            width: 405,
-            height: 405
+            width: 400 + BORDER_OFFSET,
+            height: 400 + BORDER_OFFSET
         });
         var layer = new Kinetic.Layer();
 
         var panel = new Kinetic.Rect({
             x: 0,
             y: 0,
-            width: 405,
-            height: 405,
+            width: 400 + BORDER_OFFSET,
+            height: 400 + BORDER_OFFSET,
+            cornerRadius: 5,
             fill: '#BBADA0'
         });
         layer.add(panel);
@@ -217,14 +218,14 @@ window.onload = function () {
             for (var j = 0; j < Cols; j++) {
                 (function () {
                     var box = new Kinetic.Rect({
-                        x: j * 100 + BORDER_WIDTH / 2,
-                        y: i * 100 + BORDER_WIDTH / 2,
+                        x: j * 100 + BORDER_OFFSET / 2,
+                        y: i * 100 + BORDER_OFFSET / 2,
                         width: 100,
                         height: 100,
                         cornerRadius: 5,
                         fill: '#EEE4DA',
                         stroke: '#BBADA0',
-                        strokeWidth: BORDER_WIDTH
+                        strokeWidth: 5
                     });
                     var text = new Kinetic.Text({
                         x: box.getX(),
