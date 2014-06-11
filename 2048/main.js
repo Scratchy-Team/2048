@@ -31,6 +31,9 @@ window.onload = function () {
     var row, col;
     var matrix = new Array(Rows);
     var arrayCol, arrayRow;
+    var tileBackgroundColor = ["#eee4da", "#ede0c8", "#f2b179", "#f59563", "#f67c5f",
+		"#f65e3b", "#ecdf72", "#edcc61", "#edc850", "#edc53f", "#edc22e"];
+    var DEFAULT_TILE_BG_COLOR = "#EEE4DA";
     var DIGIT_TWO = 2;
     var TEXT_OFFSET_Y = 30;
     var BORDER_OFFSET = 5;
@@ -223,7 +226,8 @@ window.onload = function () {
                         width: 100,
                         height: 100,
                         cornerRadius: 5,
-                        fill: '#EEE4DA',
+                        // fill: '#EEE4DA',
+                        fill: getBackgroundColor(i, j),
                         stroke: '#BBADA0',
                         strokeWidth: 5
                     });
@@ -239,7 +243,7 @@ window.onload = function () {
                         align: 'center',
                         fill: 'white'
                     });
-
+                    // console.log(getBackgroundColor(i,j);
                     layer.add(box);
                     layer.add(text);
                 })();
@@ -266,5 +270,18 @@ window.onload = function () {
     }
     function updateBoard(number, row, col) {
         matrix[row][col] = number;
+    }
+    function getBaseLog(base, number) {
+        return Math.log(number) / Math.log(base);
+    }
+    function getBackgroundColor(i, j) {
+        var number = matrix[i][j];
+
+        if (number === 0) {
+            return DEFAULT_TILE_BG_COLOR;
+        } else {
+            var index = getBaseLog(DIGIT_TWO, number) - 1;
+            return tileBackgroundColor[index];
+        }
     }
 }
