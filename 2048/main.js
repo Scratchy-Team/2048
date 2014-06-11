@@ -21,6 +21,27 @@
 * Create HighScore;
 */
 
+// compare if two dimensional arrays are equal
+Array.prototype.equals = function (array) {
+    if (!array)
+        return false;
+
+    if (this.length != array.length)
+        return false;
+
+    for (var i = 0, l = this.length; i < l; i++) {
+        if (this[i] instanceof Array && array[i] instanceof Array) {
+            if (!this[i].equals(array[i]))
+                return false;
+        }
+        else if (this[i] != array[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 window.onload = function () {
     var endGame = false;
     var youWin = false;
@@ -30,6 +51,7 @@ window.onload = function () {
     var Cols = 4;
     var row, col;
     var matrix = new Array(Rows);
+    var previousMatrix = new Array(Rows);
     var arrayCol, arrayRow;
     var tileBackgroundColor = ["#eee4da", "#ede0c8", "#f2b179", "#f59563", "#f67c5f",
 		"#f65e3b", "#ecdf72", "#edcc61", "#edc850", "#edc53f", "#edc22e"];
@@ -48,8 +70,10 @@ window.onload = function () {
     (function initializeBoard() {
         for (row = 0; row < Rows; row++) {
             matrix[row] = new Array(Cols);
+            previousMatrix[row] = new Array(Cols);
             for (col = 0; col < Cols ; col++) {
                 matrix[row][col] = 0;
+                previousMatrix[row][col] = 0;
             }
         }
 
@@ -250,7 +274,35 @@ window.onload = function () {
             }
         }
 
-        return stage.add(layer);
+        stage.add(layer);
+
+        // check for end of game - player loses
+
+        /* Something is wrong here
+		var areEqual = matrix.equals(previousMatrix);
+		
+		if(areEqual){
+			endGame = true;
+		}else{
+			for(var i = 0; i < matrix.length; i++){
+			  
+			  for(var j = 0; j < matrix[i].length; j++){
+				previousMatrix[i][j] = matrix[i][j];
+			  }
+			}
+		}
+		*/
+        if (endGame) {
+            showEndImage(layer, 'loser');
+        }
+
+        if (youWin) {
+            showEndImage(layer, 'winner');
+        }
+
+
+
+
     }
     function generateRandomPosition() {
         var digitPosition = []; // coordinates of new digit
@@ -270,6 +322,7 @@ window.onload = function () {
     }
     function updateBoard(number, row, col) {
         matrix[row][col] = number;
+        previousMatrix[row][col] = number;
     }
     function getBaseLog(base, number) {
         return Math.log(number) / Math.log(base);
@@ -284,4 +337,37 @@ window.onload = function () {
             return tileBackgroundColor[index];
         }
     }
+
+    function showEndImage(layer, endResult) {
+        var img = new Image();
+        img.src = endResult + ".jpg";
+
+        var player;
+        img.onload = function () {
+            player = new Kinetic.Image({
+                x: 0,
+                y: 0,
+                width: 410,
+                height: 0,
+                image: img
+            });
+
+            layer.add(player);
+            layer.draw();
+
+            var increment = 1;
+
+            var anim = new Kinetic.Animation(function (frame) {
+                player.height(increment);
+                if (increment <= 405) {
+                    increment += 5;
+                }
+            }, layer);
+
+            anim.start();
+
+        };
+    }
+
+
 }
