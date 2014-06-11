@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30324.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libraries", "libraries", "{3A2C45D8-8E06-4C4D-9946-23448EADC0C3}"
 	ProjectSection(SolutionItems) = preProject
 		kinetic-v5.1.0.js = kinetic-v5.1.0.js
@@ -25,7 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "styles", "styles", "{E65D90
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2872B95C-7817-407E-8716-99BD83FD0A26}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\Users\Dracula\Desktop\loser.jpg = ..\..\..\..\..\Users\Dracula\Desktop\loser.jpg
 		TODO.txt = TODO.txt
+		..\..\..\..\..\Users\Dracula\Desktop\winner.png = ..\..\..\..\..\Users\Dracula\Desktop\winner.png
 	EndProjectSection
 EndProject
 Global
