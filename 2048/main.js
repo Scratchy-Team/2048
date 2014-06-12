@@ -57,6 +57,7 @@ window.onload = function () {
 "#f65e3b", "#ecdf72", "#edcc61", "#edc850", "#edc53f", "#edc22e"];
     var DEFAULT_TILE_BG_COLOR = "#EEE4DA";
     var DIGIT_TWO = 2;
+    var WINNER_TILE = 2048;
     var TEXT_OFFSET_Y = 30;
     var BORDER_OFFSET = 5;
     var KEY = {
@@ -86,7 +87,10 @@ window.onload = function () {
     // main entry point
     (function gameLoop() {
         window.setTimeout(gameLoop, 60);
-        drawScreen();
+
+        if (!youWin) {
+            drawScreen();
+        }
     }());
 
     function drawScreen() {
@@ -226,7 +230,9 @@ window.onload = function () {
 
         var digitPosition = generateRandomPosition();
         updateBoard(DIGIT_TWO, digitPosition[0], digitPosition[1]);
-        
+
+        var tileContent; // get tile number or empty string
+
         for (var i = 0; i < Rows; i++) {
             for (var j = 0; j < Cols; j++) {
                 (function () {
@@ -240,10 +246,18 @@ window.onload = function () {
                         stroke: '#BBADA0',
                         strokeWidth: 5
                     });
+
+                    tileContent = (matrix[i][j] !== 0) ? (matrix[i][j]) : "";
+
+                    // check for winner number - 2048
+                    if (tileContent === WINNER_TILE) {
+                        youWin = true;
+                    }
+
                     var text = new Kinetic.Text({
                         x: box.getX(),
                         y: box.getY() + TEXT_OFFSET_Y,
-                        text: (matrix[i][j] !== 0) ? (matrix[i][j]) : "",
+                        text: tileContent,
                         fontSize: 40,
                         fontFamily: 'Calibri',
                         width: box.getWidth(),
@@ -259,6 +273,9 @@ window.onload = function () {
 
         stage.add(layer);
 
+        if (youWin) {
+            showEndImage(layer, 'winner');
+        }
         // check for end of game - player loses
 
         /* Something is wrong here
@@ -277,10 +294,8 @@ previousMatrix[i][j] = matrix[i][j];
             showEndImage(layer, 'loser');
         }
 
-        if (youWin) {
-            showEndImage(layer, 'winner');
-        }
-        
+
+
     }
     function generateRandomPosition() {
         var digitPosition = []; // coordinates of new digit
