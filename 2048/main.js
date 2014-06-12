@@ -54,7 +54,7 @@ window.onload = function () {
     var previousMatrix = new Array(Rows);
     var arrayCol, arrayRow;
     var tileBackgroundColor = ["#eee4da", "#ede0c8", "#f2b179", "#f59563", "#f67c5f",
-		"#f65e3b", "#ecdf72", "#edcc61", "#edc850", "#edc53f", "#edc22e"];
+"#f65e3b", "#ecdf72", "#edcc61", "#edc850", "#edc53f", "#edc22e"];
     var DEFAULT_TILE_BG_COLOR = "#EEE4DA";
     var DIGIT_TWO = 2;
     var TEXT_OFFSET_Y = 30;
@@ -83,9 +83,7 @@ window.onload = function () {
         draw();
     }());
 
-    var direction = "neutral";  // delete if not needed
-
-    // main entry point 
+    // main entry point
     (function gameLoop() {
         window.setTimeout(gameLoop, 60);
         drawScreen();
@@ -99,19 +97,15 @@ window.onload = function () {
             switch (e.keyCode) {
                 case KEY.DOWN:
                     moveDown();
-                    direction = "down"; // delete if not needed
                     break;
                 case KEY.UP:
                     moveUp();
-                    direction = "up"; // delete if not needed
                     break;
                 case KEY.LEFT:
                     moveLeft();
-                    direction = "left"; // delete if not needed
                     break;
                 case KEY.RIGHT:
                     moveRight();
-                    direction = "right"; // delete if not needed
                     break;
             }
         }
@@ -125,7 +119,6 @@ window.onload = function () {
                 matrix[row] = newArray(arrayCol);
             }
 
-            direction = "neutral"; // delete if not needed
             draw();
         }
 
@@ -138,7 +131,6 @@ window.onload = function () {
                 matrix[row] = newArray(arrayCol).reverse();
             }
 
-            direction = "neutral"; // delete if not needed
             draw();
         }
 
@@ -153,7 +145,6 @@ window.onload = function () {
                 }
             }
 
-            direction = "neutral"; // delete if not needed
             draw();
         }
 
@@ -169,7 +160,6 @@ window.onload = function () {
                 }
             }
 
-            direction = "neutral"; // delete if not needed
             draw();
         }
         function newArray(array) {
@@ -236,11 +226,7 @@ window.onload = function () {
 
         var digitPosition = generateRandomPosition();
         updateBoard(DIGIT_TWO, digitPosition[0], digitPosition[1]);
-
-
-        // for test purposes
-        // console.log(digitPosition[0] + " " + digitPosition[1]);
-
+        
         for (var i = 0; i < Rows; i++) {
             for (var j = 0; j < Cols; j++) {
                 (function () {
@@ -250,7 +236,6 @@ window.onload = function () {
                         width: 100,
                         height: 100,
                         cornerRadius: 5,
-                        // fill: '#EEE4DA',
                         fill: getBackgroundColor(i, j),
                         stroke: '#BBADA0',
                         strokeWidth: 5
@@ -258,16 +243,14 @@ window.onload = function () {
                     var text = new Kinetic.Text({
                         x: box.getX(),
                         y: box.getY() + TEXT_OFFSET_Y,
-                        // text: matrix[i][j],
                         text: (matrix[i][j] !== 0) ? (matrix[i][j]) : "",
                         fontSize: 40,
                         fontFamily: 'Calibri',
                         width: box.getWidth(),
-                        //padding: 30,
                         align: 'center',
                         fill: 'white'
                     });
-                    // console.log(getBackgroundColor(i,j);
+
                     layer.add(box);
                     layer.add(text);
                 })();
@@ -279,19 +262,17 @@ window.onload = function () {
         // check for end of game - player loses
 
         /* Something is wrong here
-		var areEqual = matrix.equals(previousMatrix);
-		
-		if(areEqual){
-			endGame = true;
-		}else{
-			for(var i = 0; i < matrix.length; i++){
-			  
-			  for(var j = 0; j < matrix[i].length; j++){
-				previousMatrix[i][j] = matrix[i][j];
-			  }
-			}
-		}
-		*/
+var areEqual = matrix.equals(previousMatrix);
+if(areEqual){
+endGame = true;
+}else{
+for(var i = 0; i < matrix.length; i++){
+for(var j = 0; j < matrix[i].length; j++){
+previousMatrix[i][j] = matrix[i][j];
+}
+}
+}
+*/
         if (endGame) {
             showEndImage(layer, 'loser');
         }
@@ -299,10 +280,7 @@ window.onload = function () {
         if (youWin) {
             showEndImage(layer, 'winner');
         }
-
-
-
-
+        
     }
     function generateRandomPosition() {
         var digitPosition = []; // coordinates of new digit
@@ -368,6 +346,4 @@ window.onload = function () {
 
         };
     }
-
-
 }
