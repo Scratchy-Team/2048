@@ -61,12 +61,13 @@ window.onload = function () {
 
     // main entry point
     (function gameLoop() {
+
         window.setTimeout(gameLoop, 60);
 
-        if (!youWin) {
-            drawScreen();
-        }
+        drawScreen();
+
     }());
+
 
     function drawScreen() {
         // get user input
@@ -182,8 +183,13 @@ window.onload = function () {
             }
             return newArray;
         }
+
     }
     function draw() {
+        // if win or lose state detected, don't draw anything on screen
+        if (youWin || youLose) {
+            return;
+        }
 
         var stage = new Kinetic.Stage({
             container: 'container',
