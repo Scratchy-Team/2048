@@ -28,6 +28,7 @@ window.onload = function () {
     var Rows = 4;
     var Cols = 4;
     var row, col;
+    var score = 0;
     var matrix = new Array(Rows);
     var arrayCol, arrayRow;
     var tileBackgroundColor = ["#eee4da", "#ede0c8", "#f2b179", "#f59563", "#f67c5f",
@@ -167,6 +168,7 @@ window.onload = function () {
                 while (index < list.length - 1) {
                     if (list[index] === list[index + 1]) {
                         newList.push(2 * list[index]);
+                        score += 2 * list[index];
                         index += 2;
                     }
                     else if (list[index] !== list[index + 1]) {
@@ -258,7 +260,7 @@ window.onload = function () {
         }
 
         stage.add(layer);
-
+        showScore(score);
         // evaluate game state - lose
         if (youLose) {
             showEndImage(layer, 'loser');
@@ -331,7 +333,6 @@ window.onload = function () {
             }, layer);
 
             anim.start();
-
         };
     }
 
@@ -348,5 +349,11 @@ window.onload = function () {
         }
 
         return foundEmptyTiles;
+    }
+
+    function showScore() {
+        var scoreDiv = document.getElementById("scoreOutput");
+        var span = '<span id="score">' + score + '</score>';
+        scoreDiv.innerHTML = "Score: " + span;
     }
 }

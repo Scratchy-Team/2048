@@ -25,3 +25,23 @@ header {
     margin-left: 10px;
 }
 
+#scoreOutput{
+	width: 140px;
+	height: 185px;	
+	font-size: 32px;
+	border: 5px solid #BBADA0;
+	text-align: center;
+	border-radius: 5px;
+	position: absolute;
+	padding-top: 20px;
+	margin-left: 20px;
+	color: #776e65;
+	background-color: #EEE4DA;
+}
+#score{
+	display: block;
+	font-family: 'Calibri';
+	font-size: 1.2em;
+	font-weight: bold;
+	color: white;
+}
