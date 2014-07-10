@@ -1,0 +1,69 @@
+﻿body{  
+  background-color: #FAF8EF;
+  color: #776e65;
+  margin-top: 100px;
+}
+
+#wrapper {
+	width: 800px; 
+	margin: 0 auto; 
+	border: 3px solid #776e65;
+  border-radius: 5px;
+}
+
+header {
+  margin-left: 10px;
+  text-align: center;
+}
+
+#container {
+  text-align: center;
+}
+
+#instructions {
+    font-size: 14px;
+    font-style: italic;
+    margin-left: 10px;
+}
+
+#scoreOutput{
+	width: 140px;
+	height: 140px;	
+	font-size: 32px;
+	border: 5px solid #BBADA0;
+	text-align: center;
+	border-radius: 5px;
+	position: absolute;
+	margin-top: 100px;
+	padding-top: 55px;
+	margin-left: 25px;
+	color: #776e65;
+	background-color: #EEE4DA;
+}
+#score{
+	display: block;
+	font-family: 'Calibri';
+	font-size: 1.2em;
+	font-weight: bold;
+	color: white;
+}
+#newGame{
+	width: 150px;
+	height: 35px;	
+	text-align: center;
+	border-radius: 5px;
+	position: absolute;
+	padding-top: 20px;
+	margin-top: 10px;
+	margin-left: 25px;
+	background-color: #8F7A66;
+}
+#newGame a{
+	font-size: 24px;
+	text-decoration: none;
+	color: white;
+	font-family: 'Calibri';
+	font-weight: bold;
+	line-height: 15px;
+	padding: 14px 20px;
+}
